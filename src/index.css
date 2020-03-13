@@ -1,5 +1,5 @@
 :root {
-    --default-size: 3rem;
+    --default-size: 2rem;
     --white: white;
     --gray: #f2f2f2;
     --blue: rgb(0, 117, 235);
@@ -16,13 +16,16 @@ body {
 }
 
 .flex-container {
-    display: flex;;
+    display: flex;
+}
+
+.flex-container__col {
+    flex: 1;
 }
 
 .flex-container--centered {
     justify-content: center;
     align-items: center;
-    flex-wrap: nowrap;
 }
 
 .flex-container--vertical {
@@ -32,14 +35,23 @@ body {
 .wallet {
     background-color: var(--white);
     height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .wallet__meta {
     color: gray;
+    width: 100%;
+    font-size: calc(var(--default-size) / 1.8);
 }
 
 .wallet__meta--left {
-    align-self: start;
+    text-align: left;
+}
+
+.wallet__meta--right {
+    text-align: right;
 }
 
 .wallet--bottom {
@@ -47,6 +59,11 @@ body {
 }
 
 .wallet__content {
+    width: 90%;
+}
+
+.currencies {
+    float: left;
 }
 
 .currencies__dropdown {
@@ -80,6 +97,9 @@ body {
     position: relative;
 }
 
+.amount {
+}
+
 .amount__input {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -88,11 +108,13 @@ body {
     border: none;
     font-size: var(--default-size);
     text-align: right;
+    width: 100%;
+    min-width: 100px;
 }
 
 .exchange-rate {
     background-color: white;
-    padding: 8px 30px;
+    padding: 13px 30px;
     color: var(--blue);
 }
 
@@ -105,6 +127,7 @@ body {
     background-color: white;
     padding: 5px 9px;
     color: var(--blue);
+    width: 32px;
 }
 
 .swap:hover {
@@ -158,3 +181,14 @@ body {
     top: 1px;
 }
 
+.bottom-area {
+    position: absolute;
+    top: 90vh;
+    width: 100%;
+}
+
+@media (max-width: 320px) {
+    :root {
+        --default-size: 1rem;
+    }
+}

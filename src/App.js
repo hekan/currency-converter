@@ -10,14 +10,21 @@ function App() {
     return (
         <div className="App">
             <MiddleArea>
-                <SwapWallets/>
-                <ExchangeRate/>
-                <DoExchange/>
+                <div className="flex-container__col">
+                    <SwapWallets/>
+                </div>
+                <div className="flex-container__col">
+                    <ExchangeRate/>
+                </div>
+                {/*<div className="flex-container__col">*/}
+                {/*    <DoExchange/>*/}
+                {/*</div>*/}
             </MiddleArea>
             <Wallet>
             </Wallet>
             <Wallet isBottom={true}>
             </Wallet>
+            <DoExchange/>
         </div>
     );
 }

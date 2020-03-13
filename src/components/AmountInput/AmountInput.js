@@ -17,6 +17,7 @@ const AmountInput = (props) => {
             <input onChange={validate}
                    className="amount__input"
                    type="text"
+                   maxLength={9}
                    value={amount}
                    inputMode="numeric"
                    pattern="[0-9]*" placeholder="0"/>

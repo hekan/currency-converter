@@ -2,7 +2,12 @@ import React from "react";
 
 const DoExchange = (props) => {
     return (
-        <button className="exchange-button">Convert</button>
+        <div className="bottom-area">
+            <div className="flex-container flex-container--centered">
+                    <button className="exchange-button">Convert</button>
+            </div>
+
+        </div>
     )
 };
 
