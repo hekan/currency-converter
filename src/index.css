@@ -1,5 +1,8 @@
 :root {
     --default-size: 3rem;
+    --white: white;
+    --gray: #f2f2f2;
+    --blue: rgb(0, 117, 235);
 }
 
 body {
@@ -12,20 +15,35 @@ body {
     display: inline-block;
 }
 
-.container--centered {
-    display: flex;
+.flex-container {
+    display: flex;;
+}
+
+.flex-container--centered {
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
 }
 
+.flex-container--vertical {
+    flex-direction: column;
+}
+
 .wallet {
-    background-color: white;
+    background-color: var(--white);
     height: 50vh;
 }
 
+.wallet__meta {
+    color: gray;
+}
+
+.wallet__meta--left {
+    align-self: start;
+}
+
 .wallet--bottom {
-    background-color: #eeeeee;
+    background-color: var(--gray);
 }
 
 .wallet__content {
@@ -71,3 +89,72 @@ body {
     font-size: var(--default-size);
     text-align: right;
 }
+
+.exchange-rate {
+    background-color: white;
+    padding: 8px 30px;
+    color: var(--blue);
+}
+
+.exchange-rate--gray-border {
+    border: 2px solid var(--gray);
+    border-radius: 25px;
+}
+
+.swap {
+    background-color: white;
+    padding: 5px 9px;
+    color: var(--blue);
+}
+
+.swap:hover {
+    cursor: pointer;
+}
+
+.swap--gray-border {
+    border: 2px solid var(--gray);
+    border-radius: 40px;
+}
+
+.swap-image {
+    width: 33px;
+    height: 33px;
+    color: var(--blue);
+    fill: var(--blue);
+}
+
+.middle-area {
+    position: absolute;
+    height: 2rem;
+    width: 100%;
+    top: 48vh;
+}
+
+.exchange-button {
+    background-color: #f02bab;
+    border-radius: 31px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+}
+
+.exchange-button:hover {
+    background-color: #f069dc;
+}
+
+.exchange-button:focus {
+    outline: none;
+}
+
+.exchange-button:active {
+    position: relative;
+    top: 1px;
+}
+
