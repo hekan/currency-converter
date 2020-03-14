@@ -1,16 +1,34 @@
 import React, {useState} from "react";
+import {connect} from "react-redux";
+import {setInputFrom, setInputTo} from "../../state/exchange-inputs/actions";
+import {formulaFrom, formulaTo} from "../../utils/exchange";
 
 const AmountInput = (props) => {
-    const [amount, setAmount] = useState('');
+    const {isBottom, changeFrom, changeTo, exchangeInputs, exchangePairs, currencies} = props;
+    let amount = isBottom ? exchangeInputs['to'] : exchangeInputs['from'];
+    amount = parseFloat(Number(amount).toFixed(2));
     const validate = (event) => {
         const pureValue = event.target.value;
         const value = parseValue(pureValue);
         const decimalReg = /^\d+(\.\d{1,2})?$/;
         const isValid = value === '' || hasLastDot(value) || decimalReg.test(value);
         if (isValid) {
-            setAmount(value);
+            onAmountChange(value);
         }
     };
+
+    const onAmountChange = value => {
+        if (isBottom) {
+            changeTo(value);
+            const con = formulaTo(value, currencies[exchangePairs.from], currencies[exchangePairs.to]);
+            changeFrom(con);
+        } else {
+            changeFrom(value);
+            const con = formulaFrom(value, currencies[exchangePairs.from], currencies[exchangePairs.to]);
+            changeTo(con);
+        }
+    };
+
     return (
         <div className="amount">
             {props.children}
@@ -26,6 +44,19 @@ const AmountInput = (props) => {
 };
 
 const hasLastDot = (str) => str.indexOf('.') === str.length - 1 && str.charAt(str.length - 1) === '.';
-const parseValue = (str) => str.toLowerCase().replace(',', '.');
+const parseValue = (str) => str.toLowerCase().replace(/^0+/, '').replace(',', '.');
 
-export default AmountInput;
+
+const mapStateToProps = state => {
+    return {
+        exchangeInputs: state.exchangeInputs,
+        exchangePairs: state.exchangePairs,
+        currencies: state.currencies
+    };
+};
+
+const mapDispatchToProps = {
+    changeFrom: setInputFrom,
+    changeTo: setInputTo
+};
+export default connect(mapStateToProps, mapDispatchToProps)(AmountInput);
