@@ -13,10 +13,7 @@ const Wallet = (props) => {
             <div className="wallet__content">
                 <div className="flex-container">
                     <div className="flex-container__col">
-                        <CurrenciesList>
-                            <option value="pln">PLN 🇵🇱</option>
-                            <option value="usd">USD 🇺🇸</option>
-                        </CurrenciesList>
+                        <CurrenciesList></CurrenciesList>
                     </div>
                     <div className="flex-container__col">
                         <AmountInput></AmountInput>
