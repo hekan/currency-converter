@@ -4,7 +4,7 @@ import arrowDown from "../../assets/down-arrow.svg";
 const CurrenciesList = (props) => {
     return (
         <div className="currencies">
-            <select className="currencies__dropdown">
+            <select className="currencies__dropdown" value={props.selectedWallet} onChange={props.changedOption}>
                 {props.children}
             </select>
             <img className="currencies__arrow-down" src={arrowDown} alt="arrow-down"/>

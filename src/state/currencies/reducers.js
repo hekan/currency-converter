@@ -1,10 +1,9 @@
-import {combineReducers} from "redux";
 import {SET_RATE_IN_EUR} from "./actions";
 
 const initialState = {
-        usd: 0,
-        eur: 0,
-        gbp: 0
+        usd: 1.3,
+        eur: 1,
+        gbp: 2
 };
 
 function currencies(state = initialState, action) {
@@ -19,6 +18,4 @@ function currencies(state = initialState, action) {
     }
 }
 
-export default combineReducers(
-    {currencies}
-);
+export default currencies;

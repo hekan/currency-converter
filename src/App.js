@@ -16,9 +16,6 @@ function App() {
                 <div className="flex-container__col">
                     <ExchangeRate/>
                 </div>
-                {/*<div className="flex-container__col">*/}
-                {/*    <DoExchange/>*/}
-                {/*</div>*/}
             </MiddleArea>
             <Wallet>
             </Wallet>

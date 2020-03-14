@@ -31,6 +31,4 @@ function wallets(state = initialState, action) {
     }
 }
 
-export default combineReducers(
-    {wallets}
-);
+export default wallets;

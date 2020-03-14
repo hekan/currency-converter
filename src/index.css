@@ -114,7 +114,7 @@ body {
 
 .exchange-rate {
     background-color: white;
-    padding: 13px 30px;
+    padding: 13px 0;
     color: var(--blue);
 }
 
