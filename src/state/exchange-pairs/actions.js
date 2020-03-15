@@ -11,7 +11,7 @@ export function setTo(currencyId) {
     return {type: SET_TO, currencyId}
 }
 
-export function swap() {
+export function swapWallets() {
     return {type: SWAP}
 }
 

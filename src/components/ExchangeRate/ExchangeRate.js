@@ -1,7 +1,6 @@
 import React from "react";
-import {connect} from "react-redux";
 import {currenciesMeta} from "../../state/currencies/currencies-meta";
-import {formulaFrom, formulaTo} from "../../utils/exchange";
+import {formulaFrom} from "../../utils/exchange";
 
 const ExchangeRate = (props) => {
     const {currencies, exchangePairs} = props;
@@ -13,10 +12,4 @@ const ExchangeRate = (props) => {
         <div className="exchange-rate exchange-rate--gray-border">{line}</div>
     );
 };
-const mapStateToProps = state => {
-    return {
-        exchangePairs: state.exchangePairs,
-        currencies: state.currencies
-    };
-};
-export default connect(mapStateToProps)(ExchangeRate);
+export default ExchangeRate;
