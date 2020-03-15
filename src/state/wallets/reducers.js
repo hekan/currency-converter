@@ -1,5 +1,4 @@
 import {CREDIT_FUNDS, DEBIT_FUNDS, RESET_WALLETS} from "./actions";
-import {combineReducers} from "redux";
 
 const initialState = {
     usd: 1000,
@@ -9,9 +8,10 @@ const initialState = {
 
 function wallets(state = initialState, action) {
     if (action.type === RESET_WALLETS) return {...initialState};
-    const {currencyId, amount} = action;
+    let {currencyId, amount} = action;
+    amount = Number(amount);
     const isValidCurrency = currencyId !== undefined && state[currencyId] !== undefined;
-    const isValidAmount = amount !== undefined && typeof amount === 'number';
+    const isValidAmount = !isNaN(amount) && amount !== undefined && typeof amount === 'number';
     if (!isValidCurrency || !isValidAmount) {
         return state;
     }
@@ -20,8 +20,10 @@ function wallets(state = initialState, action) {
 
     switch (action.type) {
         case CREDIT_FUNDS:
+            console.log('CREDIT_FUNDS', {funds, amount});
             return {...state, [currencyId]: funds + amount};
         case DEBIT_FUNDS:
+            console.log('DEBIT_FUNDS', {funds, amount});
             if (funds < amount) {
                 return state;
             }

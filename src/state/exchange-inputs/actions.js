@@ -11,8 +11,8 @@ export function setInputTo(n) {
     return {type: SET_INPUT_TO, n}
 }
 
-export function resetInputs(n) {
-    return {type: RESET_INPUTS, n}
+export function resetInputs() {
+    return {type: RESET_INPUTS}
 }
 
 export function swapInputs(n) {
