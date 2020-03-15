@@ -1,10 +1,9 @@
 import {render} from "@testing-library/react";
 import React from "react";
 import store from "../index";
-import {receiveRates, resetRates, setRateInEUR} from "./actions";
+import {receiveRates, resetRates} from "./actions";
 
 beforeEach(() => {
-    fetch = jest.fn(() => Promise.resolve());
     return (() => {
         store.dispatch(resetRates());
     })();
