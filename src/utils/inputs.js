@@ -11,6 +11,7 @@ export const isValidAmount = pureValue => {
 };
 
 export const leaveTwoDecimalsOnString = s => {
+    s = s + '';
     const dotIndex = s.indexOf('.');
     if (dotIndex === -1) return s;
     return s.substring(0, dotIndex + 3);
