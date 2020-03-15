@@ -6,24 +6,22 @@ const initialState = {
         gbp: 2
 };
 
+
 function currencies(state = initialState, action) {
     switch (action.type) {
-        case SET_RATE_IN_EUR:
-            return {
-                ...state,
-                [action.currencyId]: action.rate
-            };
         case RECEIVE_RATES:
             const current = {...state};
-            console.log({current, rates: action.serverRates});
-            if (current.usd !== action.serverRates.USD) {
-                current.usd = action.serverRates.USD;
+            /**
+             * Set only rates which are changed
+             */
+            for (let k in current) {
+                if (k in current) {
+                    const rate = action.serverRates[k] || action.serverRates[k.toUpperCase()];
+                    if (rate && rate !== current[k]) {
+                        current[k] = rate;
+                    }
+                }
             }
-
-            if (current.gbp !== action.serverRates.GBP) {
-                current.gbp = action.serverRates.GBP;
-            }
-
             return {
                 ...state,
                 ...current

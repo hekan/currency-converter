@@ -1,9 +1,10 @@
 import {render} from "@testing-library/react";
 import React from "react";
 import store from "../index";
-import {resetRates, setRateInEUR} from "./actions";
+import {receiveRates, resetRates, setRateInEUR} from "./actions";
 
 beforeEach(() => {
+    fetch = jest.fn(() => Promise.resolve());
     return (() => {
         store.dispatch(resetRates());
     })();
@@ -11,11 +12,15 @@ beforeEach(() => {
 
 test('should init empty currencies store', () => {
     const initial = store.getState().currencies;
-    expect(initial).toStrictEqual({ usd: 0, eur: 0, gbp: 0 });
+    expect(initial).toStrictEqual({
+        usd: 1.3,
+        eur: 1,
+        gbp: 2
+    });
 });
 
-test('#setRateInEUR should set a rate for currency in EUR', () => {
-    store.dispatch(setRateInEUR('usd', 1.2));
+test('#receiveRates should set distinct rates for currencies in EUR', () => {
+    store.dispatch(receiveRates( { usd: 4, eur: 0}));
     const state = store.getState().currencies;
-    expect(state).toStrictEqual( { usd: 1.2, eur: 0, gbp: 0 });
+    expect(state).toStrictEqual( { usd: 4, eur: 1, gbp: 2 });
 });

@@ -8,6 +8,7 @@ const AmountInput = (props) => {
     const validate = event => {
         const pureValue = parseAmountValue(event.target.value);
         const isValid = isValidAmount(pureValue);
+        console.log({pureValue, isValid, value: event.target.value});
         if (isValid) {
             props.onInputChanged(pureValue);
         }

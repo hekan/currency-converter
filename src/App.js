@@ -7,7 +7,7 @@ import SwapWallets from "./components/SwapWallets/SwapWallets";
 import DoExchange from "./components/DoExchange/DoExchange";
 import {creditFunds, debitFunds} from "./state/wallets/actions";
 import {resetInputs, setInputFrom, setInputTo, swapInputs} from "./state/exchange-inputs/actions";
-import {formulaFrom, formulaTo} from "./utils/exchange";
+import {convertAmount, formulaFrom, formulaTo} from "./utils/exchange";
 import {setFrom, setTo, swapWallets} from "./state/exchange-pairs/actions";
 import {currenciesMeta} from "./state/currencies/currencies-meta";
 import currencies from "./state/currencies/reducers";
@@ -40,6 +40,7 @@ function App(props) {
     };
 
     const onSourceAmountChanged = val => {
+        console.log({val});
         props.changeFrom(val);
         updateDestination(val, walletFrom, walletTo);
     };
@@ -69,7 +70,8 @@ function App(props) {
         props.changeFrom(con);
     };
 
-    const labelWalletBalance = (wallet, balance) => `Wallet balance: ${balance} ${currenciesMeta[wallet].symbol}`;
+    const labelWalletBalance =
+        (wallet, balance) => `Wallet balance: ${convertAmount(balance)} ${currenciesMeta[wallet].symbol}`;
 
     const labelNotEnoughBalance = `Not enough balance`;
 
@@ -88,6 +90,13 @@ function App(props) {
     const onSwap = () => {
         props.swapWallets();
         props.swapInputs();
+    };
+
+    const isReadyForExchange = () => {
+        if (!(props.inputFrom > 0) || walletTo === walletFrom) {
+            return false;
+        }
+        return isEnoughFunds();
     };
 
     return (
@@ -125,7 +134,7 @@ function App(props) {
                     {labelWalletBalanceTo()}
                 </div>
             </Wallet>
-            <DoExchange onConvert={onConvert}/>
+            <DoExchange disabled={!isReadyForExchange()} onConvert={onConvert}/>
         </div>
     );
 }

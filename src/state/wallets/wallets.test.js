@@ -1,5 +1,5 @@
 import store from "../index";
-import {creditFunds, DEBIT_FUNDS, debitFunds, resetWallets} from "./actions";
+import {creditFunds, debitFunds, resetWallets} from "./actions";
 
 
 beforeEach(() => {
@@ -38,7 +38,7 @@ test('#creditFunds should top-up funds to wallet', () => {
 
 test('#debitFunds and #creditFunds allow only numbers', () => {
     store.dispatch(creditFunds('usd', 'dad'));
-    store.dispatch(creditFunds('usd', true));
+    store.dispatch(creditFunds('usd', false));
     const state = store.getState().wallets;
     expect(state).toStrictEqual({usd: 1000, eur: 1000, gbp: 1000});
 });

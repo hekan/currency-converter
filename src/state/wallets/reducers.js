@@ -19,11 +19,11 @@ function wallets(state = initialState, action) {
     const funds = state[currencyId];
 
     switch (action.type) {
+        case RESET_WALLETS:
+            return initialState;
         case CREDIT_FUNDS:
-            console.log('CREDIT_FUNDS', {funds, amount});
             return {...state, [currencyId]: funds + amount};
         case DEBIT_FUNDS:
-            console.log('DEBIT_FUNDS', {funds, amount});
             if (funds < amount) {
                 return state;
             }

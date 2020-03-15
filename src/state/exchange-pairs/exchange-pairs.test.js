@@ -1,5 +1,5 @@
 import store from "../index";
-import {reset, setFrom, setTo, swap} from "./actions";
+import {reset, setFrom, setTo, swap, swapWallets} from "./actions";
 
 
 beforeEach(() => {
@@ -26,7 +26,7 @@ test('#setTo should set destination wallet', () => {
 });
 
 test('#swap should swap from and to wallets', () => {
-    store.dispatch(swap());
+    store.dispatch(swapWallets());
     const pairs = store.getState().exchangePairs;
     expect(pairs).toStrictEqual({from: 'eur', to: 'gbp'});
 });
