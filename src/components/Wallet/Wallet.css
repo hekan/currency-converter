@@ -1,0 +1,29 @@
+.wallet {
+    background-color: var(--white);
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wallet__meta {
+    color: gray;
+    width: 100%;
+    font-size: calc(var(--default-size) / 1.8);
+}
+
+.wallet__meta--left {
+    text-align: left;
+}
+
+.wallet__meta--right {
+    text-align: right;
+}
+
+.wallet--bottom {
+    background-color: var(--gray);
+}
+
+.wallet__content {
+    width: 90%;
+}

@@ -6,6 +6,7 @@ import {setFrom, setTo} from "../../state/exchange-pairs/actions";
 import {currenciesMeta} from "../../state/currencies/currencies-meta";
 import {setInputFrom, setInputTo} from "../../state/exchange-inputs/actions";
 import {formulaFrom, formulaTo} from "../../utils/exchange";
+import './Wallet.css';
 
 const Wallet = (props) => {
     const {
