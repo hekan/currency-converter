@@ -81,7 +81,7 @@ body {
     content: ">";
 }
 
-.currencies__dropdown:focus, .amount__input:focus {
+.currencies__dropdown:focus {
     outline: none;
 }
 
@@ -96,21 +96,6 @@ body {
     right: calc(var(--default-size) / 2);
     top: calc(var(--default-size) / 6);
     position: relative;
-}
-
-.amount {
-}
-
-.amount__input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: transparent;
-    border: none;
-    font-size: var(--default-size);
-    text-align: right;
-    width: 100%;
-    min-width: 100px;
 }
 
 .exchange-rate {

@@ -1,6 +1,7 @@
 import React from "react";
 import {appConfig} from "../../appConfigs";
 import {isValidForInput, leaveTwoDecimalsOnString, replaceCommasToPeriods} from "../../utils/inputs";
+import './AmountInput.css';
 
 const AmountInput = (props) => {
     const amount = leaveTwoDecimalsOnString(props.amount);
