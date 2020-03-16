@@ -9,7 +9,6 @@ const AmountInput = (props) => {
     const validate = event => {
         const pureValue = replaceCommasToPeriods(event.target.value);
         const isValid = isValidForInput(pureValue);
-        // console.log({pureValue, isValid, value: event.target.value});
         if (isValid) {
             props.onInputChanged(pureValue);
         }

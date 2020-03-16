@@ -15,6 +15,6 @@ export function swapWallets() {
     return {type: SWAP}
 }
 
-export function reset() {
+export function resetExchangePairs() {
     return {type: RESET}
 }

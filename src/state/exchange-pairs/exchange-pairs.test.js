@@ -1,10 +1,10 @@
 import store from "../index";
-import {reset, setFrom, setTo, swap, swapWallets} from "./actions";
+import {resetExchangePairs, setFrom, setTo, swap, swapWallets} from "./actions";
 
 
 beforeEach(() => {
     return (() => {
-        store.dispatch(reset());
+        store.dispatch(resetExchangePairs());
     })();
 });
 

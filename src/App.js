@@ -22,25 +22,13 @@ function App(props) {
         balanceTo
     } = props;
 
-    /**
-     * TODO
-     * @returns {boolean}
-     */
-    const isValidForFinalConverting = () => {
-        return true;
-    };
-
     const onConvert = () => {
-        if (isValidForFinalConverting()) {
-            console.log({walletFrom, inputFrom});
             props.debitFunds(walletFrom, inputFrom);
             props.creditFunds(walletTo, inputTo);
             props.resetInputs();
-        }
     };
 
     const onSourceAmountChanged = val => {
-        console.log({val});
         props.changeFrom(val);
         updateDestination(val, walletFrom, walletTo);
     };
@@ -116,7 +104,7 @@ function App(props) {
     const metaForSourceObj = metaForSource();
 
     return (
-        <div className="App">
+        <main>
             <MiddleArea>
                 <div className="flex-container__col">
                     <SwapWallets swap={onSwap}/>
@@ -131,6 +119,7 @@ function App(props) {
             <Wallet
                 selectedWallet={walletFrom}
                 balance={balanceFrom}
+                classes={''}
                 onWalletChanged={onSourceWalletChanged}
                 onInputChanged={onSourceAmountChanged}
                 amount={props.inputFrom}>
@@ -151,7 +140,7 @@ function App(props) {
                 </div>
             </Wallet>
             <DoExchange disabled={!isReadyForExchange()} onConvert={onConvert}/>
-        </div>
+        </main>
     );
 }
 

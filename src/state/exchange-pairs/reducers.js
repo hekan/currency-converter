@@ -15,7 +15,7 @@ function exchangePairs(state = initialState, action) {
             return {...state, to: action.currencyId};
         case SWAP:
             const tempFrom = state.from;
-            return {...state, from: state.to, to: tempFrom}
+            return {...state, from: state.to, to: tempFrom};
         default:
             return state;
     }

@@ -19,6 +19,7 @@ afterEach(() => {
 });
 
 it("renders CurrenciesList with props values", () => {
-    render(<CurrenciesList selectedWallet={'usd'}><option value={'usd'}></option></CurrenciesList>, container);
+    const mockFn = jest.fn();
+    render(<CurrenciesList changedOption={mockFn} selectedWallet={'usd'}><option value={'usd'}></option></CurrenciesList>, container);
     expect(input().value).toBe('usd');
 });
