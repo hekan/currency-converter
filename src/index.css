@@ -63,41 +63,6 @@ body {
     width: 90%;
 }
 
-.currencies {
-    float: left;
-}
-
-.currencies__dropdown {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: transparent;
-    border: none;
-    font-size: var(--default-size);
-    padding-right: calc(var(--default-size) / 2);
-}
-
-.currencies__dropdown::after {
-    content: ">";
-}
-
-.currencies__dropdown:focus {
-    outline: none;
-}
-
-.currencies__dropdown::-ms-expand {
-    display: none;
-}
-
-.currencies__arrow-down {
-    width: calc(var(--default-size) / 2);
-    height: calc(var(--default-size) / 2);
-    margin: calc(var(--default-size) / 4);
-    right: calc(var(--default-size) / 2);
-    top: calc(var(--default-size) / 6);
-    position: relative;
-}
-
 .exchange-rate {
     background-color: white;
     padding: 13px 0;
