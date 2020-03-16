@@ -45,7 +45,6 @@
     }
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
     "react-test-renderer": "^16.13.0"
   }
 }
