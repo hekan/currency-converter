@@ -1,11 +1,11 @@
 import React from "react";
-import CurrenciesList from "../../CurrenciesList/CurrenciesList";
-import AmountInput from "../../AmountInput/AmountInput";
+import CurrenciesList from "../CurrenciesList/CurrenciesList";
+import AmountInput from "../AmountInput/AmountInput";
 import {connect} from 'react-redux';
-import {setFrom, setTo} from "../../../state/exchange-pairs/actions";
-import {currenciesMeta} from "../../../state/currencies/currencies-meta";
-import {setInputFrom, setInputTo} from "../../../state/exchange-inputs/actions";
-import {formulaFrom, formulaTo} from "../../../utils/exchange";
+import {setFrom, setTo} from "../../state/exchange-pairs/actions";
+import {currenciesMeta} from "../../state/currencies/currencies-meta";
+import {setInputFrom, setInputTo} from "../../state/exchange-inputs/actions";
+import {formulaFrom, formulaTo} from "../../utils/exchange";
 
 const Wallet = (props) => {
     const {
