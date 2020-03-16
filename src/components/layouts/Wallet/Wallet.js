@@ -59,14 +59,7 @@ const Wallet = (props) => {
                 <div className="flex-container">
                     <div className="flex-container__col">
                         <div className="flex-container">
-                            <div className={metaClasses}>
-                                {
-                                    isValidBalance || isBottom ?
-                                        `Wallet balance: ${balance} ${currenciesMeta[selectedWallet].symbol}`
-                                        :
-                                        `Not enough balance`
-                                }
-                            </div>
+                            {props.children}
                         </div>
                     </div>
                 </div>

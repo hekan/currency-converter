@@ -1,13 +1,13 @@
 import React from "react";
 import {appConfig} from "../../appConfigs";
-import {isValidAmount, parseAmountValue} from "../../utils/inputs";
+import {isValidForInput, replaceCommasToPeriods} from "../../utils/inputs";
 
 const AmountInput = (props) => {
     const {amount} = props;
 
     const validate = event => {
-        const pureValue = parseAmountValue(event.target.value);
-        const isValid = isValidAmount(pureValue);
+        const pureValue = replaceCommasToPeriods(event.target.value);
+        const isValid = isValidForInput(pureValue);
         console.log({pureValue, isValid, value: event.target.value});
         if (isValid) {
             props.onInputChanged(pureValue);

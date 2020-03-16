@@ -1,6 +1,5 @@
 import {RESET_INPUTS, SET_INPUT_FROM, SET_INPUT_TO, SWAP_INPUTS} from "./actions";
-import {convertAmount} from "../../utils/exchange";
-import {hasLastDot, isValidAmount, leaveTwoDecimalsOnString} from "../../utils/inputs";
+import {isValidForInput, leaveTwoDecimalsOnString} from "../../utils/inputs";
 
 const initialState = {
     from: '',
@@ -12,7 +11,7 @@ function exchangePairs(state = initialState, action) {
     if (action.type === SET_INPUT_TO || action.type === SET_INPUT_FROM) {
         amount = action.n;
         amount = leaveTwoDecimalsOnString(amount);
-        if (!isValidAmount(amount)) {
+        if (!isValidForInput(amount)) {
             return state;
         }
     }

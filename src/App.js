@@ -7,10 +7,10 @@ import SwapWallets from "./components/SwapWallets/SwapWallets";
 import DoExchange from "./components/DoExchange/DoExchange";
 import {creditFunds, debitFunds} from "./state/wallets/actions";
 import {resetInputs, setInputFrom, setInputTo, swapInputs} from "./state/exchange-inputs/actions";
-import {convertAmount, formulaFrom, formulaTo} from "./utils/exchange";
+import {formulaFrom, formulaTo} from "./utils/exchange";
 import {setFrom, setTo, swapWallets} from "./state/exchange-pairs/actions";
 import {currenciesMeta} from "./state/currencies/currencies-meta";
-import currencies from "./state/currencies/reducers";
+import {leaveTwoDecimalsOnString} from "./utils/inputs";
 
 function App(props) {
     const {
@@ -71,7 +71,7 @@ function App(props) {
     };
 
     const labelWalletBalance =
-        (wallet, balance) => `Wallet balance: ${convertAmount(balance)} ${currenciesMeta[wallet].symbol}`;
+        (wallet, balance) => `Wallet balance: ${leaveTwoDecimalsOnString(balance)} ${currenciesMeta[wallet].symbol}`;
 
     const labelNotEnoughBalance = `Not enough balance`;
 
@@ -99,6 +99,22 @@ function App(props) {
         return isEnoughFunds();
     };
 
+    const metaForSource = () => {
+        let classes = 'wallet__meta';
+        let label = '';
+        if (!isEnoughFunds()) {
+            classes += ' wallet__meta--right';
+            label = labelNotEnoughBalance;
+        } else {
+            classes += ' wallet__meta--left';
+            label = labelWalletBalanceFrom();
+        }
+
+        return {classes, label};
+    };
+
+    const metaForSourceObj = metaForSource();
+
     return (
         <div className="App">
             <MiddleArea>
@@ -118,8 +134,8 @@ function App(props) {
                 onWalletChanged={onSourceWalletChanged}
                 onInputChanged={onSourceAmountChanged}
                 amount={props.inputFrom}>
-                <div className={'wallet__meta ' + isEnoughFunds() ? 'wallet__meta--left' : 'wallet__meta--right'}>
-                    {isEnoughFunds() ? labelWalletBalanceFrom() : labelNotEnoughBalance}
+                <div className={metaForSourceObj.classes}>
+                    {metaForSourceObj.label}
                 </div>
             </Wallet>
             <Wallet
