@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import arrowDown from "../../assets/down-arrow.svg";
 import './Currencies.css';
 

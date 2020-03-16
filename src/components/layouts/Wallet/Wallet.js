@@ -50,7 +50,7 @@ const Wallet = (props) => {
                             })}
                         </CurrenciesList>
                     </div>
-                    <div className="flex-container__col">
+                    <div className="flex-container__col flex-container__col--doubled">
                         <AmountInput amount={props.amount}
                                      onInputChanged={props.onInputChanged}>
                         </AmountInput>
