@@ -20,7 +20,8 @@
     "test": "jest",
     "test:watch": "npm test -- --watch",
     "test:coverage": "npm test -- --coverage",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext .js --ext .jsx ."
   },
   "eslintConfig": {
     "extends": "react-app"
