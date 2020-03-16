@@ -1,7 +1,7 @@
 const decimalReg = /^\d+(\.\d{1,2})?$/;
 
 export const hasLastDot = str => str.indexOf('.') === str.length - 1
-    && str.charAt(str.length - 1) === '.' && str.length > 1;
+	&& str.charAt(str.length - 1) === '.' && str.length > 1;
 
 export const replaceCommasToPeriods = str => str.replace(',', '.');
 
@@ -18,12 +18,12 @@ export const replaceCommasToPeriods = str => str.replace(',', '.');
  * @returns {boolean}
  */
 export const isValidForInput = pureValue => {
-    return pureValue === '' || !!hasLastDot(pureValue) || !!decimalReg.test(pureValue);
+	return pureValue === '' || !!hasLastDot(pureValue) || !!decimalReg.test(pureValue);
 };
 
 export const leaveTwoDecimalsOnString = s => {
-    s = s + '';
-    const dotIndex = s.indexOf('.');
-    if (dotIndex === -1) return s;
-    return s.substring(0, dotIndex + 3);
+	s = s + '';
+	const dotIndex = s.indexOf('.');
+	if (dotIndex === -1) return s;
+	return s.substring(0, dotIndex + 3);
 };
