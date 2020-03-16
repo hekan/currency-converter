@@ -6,8 +6,8 @@ import './ExchangeRate.css';
 const ExchangeRate = (props) => {
     const {currencies, exchangePairs} = props;
     const {from, to} = exchangePairs;
-    const signFrom = currenciesMeta[from].symbol;
-    const signTo = currenciesMeta[to].symbol;
+    const signFrom = currenciesMeta[from]?.symbol;
+    const signTo = currenciesMeta[to]?.symbol;
     const convertedRate = formulaFrom(1, currencies[from], currencies[to]);
     const line = `1${signFrom} = ${convertedRate}${signTo}`;
     return (

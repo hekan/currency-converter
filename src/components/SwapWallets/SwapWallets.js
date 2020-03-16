@@ -1,5 +1,6 @@
 import React from "react";
 import Swap from "../../assets/sort.svg";
+import './SwapWallets.css';
 
 const SwapWallets = (props) => {
     return (

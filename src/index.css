@@ -67,28 +67,7 @@ body {
     width: 90%;
 }
 
-.swap {
-    background-color: white;
-    padding: 5px 9px;
-    color: var(--blue);
-    width: 32px;
-}
 
-.swap:hover {
-    cursor: pointer;
-}
-
-.swap--gray-border {
-    border: 2px solid var(--gray);
-    border-radius: 40px;
-}
-
-.swap-image {
-    width: 33px;
-    height: 33px;
-    color: var(--blue);
-    fill: var(--blue);
-}
 
 .middle-area {
     position: absolute;
