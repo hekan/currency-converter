@@ -1,9 +1,9 @@
 import React from "react";
 import {appConfig} from "../../appConfigs";
-import {isValidForInput, replaceCommasToPeriods} from "../../utils/inputs";
+import {isValidForInput, leaveTwoDecimalsOnString, replaceCommasToPeriods} from "../../utils/inputs";
 
 const AmountInput = (props) => {
-    const {amount} = props;
+    const amount = leaveTwoDecimalsOnString(props.amount);
 
     const validate = event => {
         const pureValue = replaceCommasToPeriods(event.target.value);
