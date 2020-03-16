@@ -1,12 +1,12 @@
 export const currenciesMeta = {
-    usd: {
-        symbol: '$'
-    },
-    eur: {
-        symbol: '€'
-    },
-    gbp: {
-        symbol: '£'
-    }
+	usd: {
+		symbol: '$'
+	},
+	eur: {
+		symbol: '€'
+	},
+	gbp: {
+		symbol: '£'
+	}
 };
 

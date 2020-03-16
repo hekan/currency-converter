@@ -1,0 +1,33 @@
+.exchange-button {
+    background-color: #f02bab;
+    border-radius: 31px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+}
+
+.exchange-button:hover {
+    background-color: #f069dc;
+}
+
+.exchange-button:focus {
+    outline: none;
+}
+
+.exchange-button:active {
+    position: relative;
+    top: 1px;
+}
+
+.exchange-button:disabled,
+.exchange-button[disabled], .exchange-button[disabled]:hover{
+    background-color: #ccc;
+    cursor: auto;
+}

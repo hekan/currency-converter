@@ -1,0 +1,36 @@
+.currencies {
+    float: left;
+    position: relative;
+    display: inline-block;
+}
+
+.currencies__dropdown {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    border: none;
+    font-size: var(--default-size);
+    padding-right: calc(var(--default-size));
+}
+
+.currencies__dropdown::after {
+    content: ">";
+}
+
+.currencies__dropdown:focus {
+    outline: none;
+}
+
+.currencies__dropdown::-ms-expand {
+    display: none;
+}
+
+.currencies__arrow-down {
+    width: calc(var(--default-size) / 2);
+    height: calc(var(--default-size) / 2);
+    right: calc(var(--default-size) / 3);
+    top: calc(var(--default-size) / 3);
+    position: absolute;
+    pointer-events: none;
+}

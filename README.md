@@ -1,4 +1,12 @@
 # currency-converter
+### Getting started
+#####Install dependencies
+`npm i`
+#####Run locally
+`npm run start`
+#####Build
+`npm run build`
+    
 ### Requirements
 * **Wallets** for every currency, at least three
 * Two input fields: 

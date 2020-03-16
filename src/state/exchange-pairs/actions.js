@@ -4,17 +4,17 @@ export const SWAP = 'SWAP';
 export const RESET = 'RESET';
 
 export function setFrom(currencyId) {
-    return {type: SET_FROM, currencyId}
+	return {type: SET_FROM, currencyId};
 }
 
 export function setTo(currencyId) {
-    return {type: SET_TO, currencyId}
+	return {type: SET_TO, currencyId};
 }
 
 export function swapWallets() {
-    return {type: SWAP}
+	return {type: SWAP};
 }
 
-export function reset() {
-    return {type: RESET}
+export function resetExchangePairs() {
+	return {type: RESET};
 }

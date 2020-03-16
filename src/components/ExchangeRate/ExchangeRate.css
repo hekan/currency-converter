@@ -1,0 +1,10 @@
+.exchange-rate {
+    background-color: white;
+    padding: 13px 0;
+    color: var(--blue);
+}
+
+.exchange-rate--gray-border {
+    border: 2px solid var(--gray);
+    border-radius: 25px;
+}

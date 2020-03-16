@@ -4,17 +4,17 @@ export const RESET_INPUTS = 'RESET_INPUTS';
 export const SWAP_INPUTS = 'SWAP_INPUTS';
 
 export function setInputFrom(n) {
-    return {type: SET_INPUT_FROM, n}
+	return {type: SET_INPUT_FROM, n};
 }
 
 export function setInputTo(n) {
-    return {type: SET_INPUT_TO, n}
+	return {type: SET_INPUT_TO, n};
 }
 
 export function resetInputs() {
-    return {type: RESET_INPUTS}
+	return {type: RESET_INPUTS};
 }
 
 export function swapInputs() {
-    return {type: SWAP_INPUTS}
+	return {type: SWAP_INPUTS};
 }
